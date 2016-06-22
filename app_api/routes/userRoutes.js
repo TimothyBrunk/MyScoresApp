@@ -1,9 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var userCtrl = require('../controllers/usersCtrl');
+var usersCtrl = require('../controllers/usersCtrl');
 
-router.get('/', postsCtrl.allposts);
-
+router.get('/users', usersCtrl.allUsers);
 
 
 

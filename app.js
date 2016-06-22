@@ -8,12 +8,14 @@ app.use(bp.json());
 app.use(bp.urlencoded({ extended: false }));
 
 var path = require('path');
-app.set('views', path.join(__dirname, 'app_server', 'views'));
-app.use(express.static(__dirname + '/app_server/views/public'));
+app.set('views', path.join(__dirname, 'public'));
+app.use(express.static(__dirname + '/public'));
 
+app.use('/api', require('./app_api/routes/userRoutes'));
 
-
-
+app.use(function(req,res,next){
+  res.sendStatus(404);
+})
 
 
 app.listen(port, function(){
